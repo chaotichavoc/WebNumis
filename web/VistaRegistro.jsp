@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="./css/newstyles.css?v=1">
 </head>
 <body>
+     <div id="contenedor-index">
+        <header>
+            <div class="box"></div>
+            <div class="logo"><img src="res/numi.png" height = "70"></div>
+            <div class="social"><img src="res/UAH.png" height = "70"/></div>
+        </header>
     <div class="contenedor-registro">
     <div class="registro">  
         <form action="ControladorAcceso" method="post" class ='formulario'>
@@ -30,6 +36,12 @@
             <input type="submit" value="Registrar" class="btn-input">
         </form>	
     </div>
-</div>
+        
+    </div>
+         <footer>
+            <h3>Esto es el footer</h3>
+        </footer>
+    </div>
+    
 </body>
 </html>
