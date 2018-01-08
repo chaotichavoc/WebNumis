@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+    position:absolute;
+    height:100%;
+    width: 100%;
+    background-color:rgb(255, 255, 220);
+}
+#contenedor-index{
+    width: 70%;
+    margin: 0 auto;
+    border: 1px solid red;
+}
+#contenedor-index header{
+    height: 100px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    background-color: #B1F1FC;
+}
+#contenedor-index nav {
+    padding: 20px 80px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #fff;
+    background-color: #5995DA;
+    border: 1px solid red;
+}
+.nav-elemento a{
+    color:white;
+    text-decoration: none;
+}
+#contenedor-index .box{
+    height: 100%;
+    width: 200px;
+}
+#contenedor-index main{
+    display:flex;
+    justify-content: center;
+    padding: 80px;
+    background-color: #DAE4FF;
+}
+#contenedor-index section{
+    height: 300px;
+    width: 1800px;
+    display:flex;
+    justify-content: center;
+
+}
+#contenedor-index .bloque{
+    height: 300px;
+    width : 300px;
+    margin: 0 30px;
+    padding: 20px;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    color:white;
+}
+#contenedor-index footer{
+    height:50px;
+    background-color: #5995DA;
+
+}
+#contenedor-index #primero{
+    background-color: #7CA4FF;
+}
+#contenedor-index #segundo{
+   background-color: #48B0BD;
+}
+#contenedor-index #tercero {
+   background-color: #D584F1;
+}
+.contenedor-acceso,
+.contenedor-registro{
+    height: inherit;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.acceso,
+.registro{
+    display:flex;
+    justify-content: center;
+    position:relative;
+    top: -50px;
+    background-color: grey;
+    padding: 10px;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formulario h1{
+    width:100%;
+    color:white;    
+}
+.formulario input{
+    width: 250px;
+    border-radius: 4px;
+    margin: 5px 0;
+    text-align: left;
+    
+}
+.formulario label {
+  }
