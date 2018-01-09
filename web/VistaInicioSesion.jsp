@@ -14,8 +14,13 @@
             <div class="box"></div>
             <div class="logo"><img src="res/numi.png" height = "70"></div>
             <div class="social"><img src="res/UAH.png" height = "70"/></div>
-        </header>
-    <div class="contenedor-acceso">
+     </header>
+         <nav>
+            <div class="nav-elemento">Inicio</div>
+            <div class="nav-elemento">Tus pujas</div>
+            <div class="nav-elemento">Contacto</div>
+         </nav>
+        <div class="contenedor-acceso">
         <div class="acceso">
             <form action="ControladorAcceso" method="post" class="formulario">
                 <h1>Acceso de usuario</h1>
