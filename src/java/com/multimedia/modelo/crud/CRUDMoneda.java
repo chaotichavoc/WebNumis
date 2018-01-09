@@ -22,8 +22,10 @@ import java.util.logging.Logger;
 public class CRUDMoneda implements ICRUDGeneral<Articulo> {
 
     private final Connection conexion;
+    private GestionBBDD gestion;
 
-    public CRUDMoneda(GestionBBDD gestion) {
+    public CRUDMoneda() {
+        gestion = GestionBBDD.getInstance();
         this.conexion = gestion.getConexion();
     }
 

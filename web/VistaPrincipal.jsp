@@ -27,6 +27,7 @@
                     else{//Si ha iniciado sesion se muestra su nombre
                         out.println("<i class=\"fa fa-user-circle-o\" aria-hidden=\"true\"></i>");
                         out.println("<div class=\"login\">" + usuario.getNombre_usuario() + "</div>");
+                        out.println("<div class=\"login\"><a href=\""+request.getContextPath()+"/ControladorLogout\">Cerrar Sesión</a></div>");
                     }
                 %>
             </div>

@@ -19,13 +19,15 @@ import java.util.logging.Logger;
 public class CRUDAdministrador implements ICRUDGeneral<Administrador>, ICRUDUsuario {
 
     private final Connection conexion;
+    private GestionBBDD gestion;
 
     /**
      * Constructor
      *
      * @param gestion
      */
-    public CRUDAdministrador(GestionBBDD gestion) {
+    public CRUDAdministrador() {
+        gestion= GestionBBDD.getInstance();
         this.conexion = gestion.getConexion();
     }
 

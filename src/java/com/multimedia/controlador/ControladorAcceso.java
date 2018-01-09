@@ -52,7 +52,7 @@ public class ControladorAcceso extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        GestionBBDD conexion = new GestionBBDD();
+        GestionBBDD conexion = GestionBBDD.getInstance();
         conexion.establecerConexion();
         HttpSession session = request.getSession(true);
         String tipoAcceso = request.getParameter("llamada");
@@ -68,10 +68,10 @@ public class ControladorAcceso extends HttpServlet {
                         request.getParameter("direccion_entrega"),
                         Integer.parseInt(request.getParameter("telefono")));
 
-                CRUDAdministrador crudAdministrador = new CRUDAdministrador(conexion);
+                CRUDAdministrador crudAdministrador = new CRUDAdministrador();
 
                 if (!crudAdministrador.esUsuarioRegistrado(cliente.getNombre_usuario())) {//El usuario no existe en la tabla Administradores
-                    CRUDCliente crudCliente = new CRUDCliente(conexion);
+                    CRUDCliente crudCliente = new CRUDCliente();
                     if (!crudCliente.esUsuarioRegistrado(cliente.getNombre_usuario())) {//El usuario no existe en la tabla Clientes
                         crudCliente.insertar(cliente);//El usuario no existe en la BBDD por lo que se puede registrar
                         response.sendRedirect("./VistaRegistroValido.jsp");
@@ -87,13 +87,13 @@ public class ControladorAcceso extends HttpServlet {
                         request.getParameter("nombre_usuario"),
                         request.getParameter("clave"));
 
-                CRUDAdministrador crudAdministrador = new CRUDAdministrador(conexion);
+                CRUDAdministrador crudAdministrador = new CRUDAdministrador();
 
                 if (crudAdministrador.inicioSesionValido(usuario)) {//Es un administrador
                     session.setAttribute("usuario", crudAdministrador.obtenerEspecifico(usuario.getNombre_usuario()));//Devuelve el objeto asociado al usuario
                     response.sendRedirect("./VistaPanelAdmin.jsp");
                 } else {
-                    CRUDCliente crudCliente = new CRUDCliente(conexion);
+                    CRUDCliente crudCliente = new CRUDCliente();
                     if (crudCliente.inicioSesionValido(usuario)) {//Es un cliente
                         session.setAttribute("usuario", crudCliente.obtenerEspecifico(usuario.getNombre_usuario()));
                         response.sendRedirect("./VistaPrincipal.jsp");

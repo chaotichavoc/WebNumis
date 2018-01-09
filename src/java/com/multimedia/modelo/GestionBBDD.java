@@ -9,23 +9,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 /**
  *
  * @author Grupo11
  */
 public class GestionBBDD {
+    private static GestionBBDD firstInstance = null; //Singleton
+    private static String driver;
+    private static String dbRuta;
+    private static String dbExistente;
+    private static String urlConexion;
+    private static Connection conexion;
 
-    private final String driver;
-    private final String dbRuta;
-    private final String dbExistente;
-    private final String urlConexion;
-    private Connection conexion;
-
+    public static GestionBBDD getInstance(){
+        if(firstInstance ==null){
+            firstInstance = new GestionBBDD();
+        }
+        return firstInstance;
+    }
     /**
      * Establece la conexión con la base de datos
      */
-    public GestionBBDD() {
+    private GestionBBDD() {
         driver = "org.apache.derby.jdbc.EmbeddedDriver";
         dbRuta = "/BDPRAC/F1DB";
         dbExistente = "create=true"; //la base de datos se creará si no existe todavía
@@ -34,7 +42,13 @@ public class GestionBBDD {
 
     public void establecerConexion() {
         try {
-            Class.forName(driver);
+            try {
+                Class.forName(driver).newInstance();
+            } catch (InstantiationException ex) {
+                Logger.getLogger(GestionBBDD.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(GestionBBDD.class.getName()).log(Level.SEVERE, null, ex);
+            }
             conexion = DriverManager.getConnection(urlConexion);
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("ERROR AL REALIZAR LA CONEXION CON LA BBDD");
@@ -105,6 +119,13 @@ public class GestionBBDD {
             conexion.close();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        }
+    }
+    public void cerrarBBDD(){
+        try {
+            DriverManager.getConnection("jdbc:derby:;shutdown=true");
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

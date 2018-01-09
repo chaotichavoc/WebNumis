@@ -22,13 +22,14 @@ import java.util.logging.Logger;
 public class CRUDCliente implements ICRUDGeneral<Cliente>, ICRUDUsuario {
 
     private final Connection conexion;
-
+    private GestionBBDD gestion;
     /**
      * Constructor
      *
      * @param gestion
      */
-    public CRUDCliente(GestionBBDD gestion) {
+    public CRUDCliente() {
+        gestion = GestionBBDD.getInstance();
         this.conexion = gestion.getConexion();
     }
 

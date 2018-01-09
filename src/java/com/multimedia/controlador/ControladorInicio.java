@@ -19,7 +19,7 @@ public class ControladorInicio extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init(); //To change body of generated methods, choose Tools | Templates.
-        gestionDB = new GestionBBDD();
+        gestionDB = GestionBBDD.getInstance();
         gestionDB.establecerConexion();
         gestionDB.crearBaseDatos();
     }
@@ -63,5 +63,7 @@ public class ControladorInicio extends HttpServlet {
     public void destroy() {
         super.destroy();
         gestionDB.cerrarConexion();
+        gestionDB.cerrarBBDD();
+        
     }
 }
