@@ -20,6 +20,11 @@
             <div class="logo"><img src="res/numi.png" height = "70"></div>
             <div class="social"><img src="res/UAH.png" height = "70"/></div>
         </header>
+          <nav>
+            <div class="nav-elemento">Inicio</div>
+            <div class="nav-elemento">Tus pujas</div>
+            <div class="nav-elemento">Contacto</div>
+          </nav>
     <div class="contenedor-registro">
     <div class="registro">  
         <form action="ControladorAcceso" method="post" class ='formulario'>
